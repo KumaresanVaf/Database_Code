@@ -36,3 +36,12 @@ truncate table employee;
 
 ROLLBACK TRANSACTION theridInsert;
 
+--DCL
+create login samp with password = '123';
+
+use[kumaresan]
+create user User_D for login samp;
+
+GRANT SELECT,insert ON [dbo].[Employee] TO User_D;
+
+Revoke insert on [dbo].[Employee] TO User_D;
